@@ -1,0 +1,14 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "dependencies": {
+        "prejst": "1.0.2"
+    },
+    "prejst-config": {
+        "output": "../scripts/template",
+        "charset": "utf-8",
+        "compress": true,
+        "runtime": "template.js",
+        "minify": false
+    }
+}

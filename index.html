@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="images/logo.ico" />
+    <script type="text/javascript" src="scripts/require.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/portal.css" rel="stylesheet">
+    <link href="scripts/skin/layer.css" rel="stylesheet">
+</head>
+<body>
+<div class="container" id="mainWrapper">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>淡泊明志，宁静致远</h3>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12" id="searchView">
+
+        </div>
+    </div>
+
+</div>
+<div class="btn-group open search-hint-list">
+    <ul class="dropdown-menu" >
+    </ul>
+
+</div>
+
+<script  type="text/javascript">
+    require.config({
+        baseUrl: 'scripts',
+        paths: {
+            'jquery': 'jquery.min',
+            'json2': 'json2',
+            'underscore': 'underscore',
+            'backbone': 'backbone.1.2.2',
+            'bootstrap': 'bootstrap.min',
+            'text': 'text',
+            'require': 'require',
+            'layer':'layer',
+            'template':'template/template'
+        },
+        shim:{
+            'jquery':{
+                deps:['require'],
+                exports:'$'
+            },
+            'underscore':{
+                deps:['jquery'],
+                exports:'_'
+            },
+            'backbone':{
+                deps:['jquery','underscore'],
+                exports:'Backbone'
+            },
+            'bootstrap':['jquery'],
+            'text':['jquery']
+        },
+        urlArgs: "version=1.0.0"
+        ,callback: function() {
+            require(['jquery','modules/searchView','modules/searchHintView','modules/translateView'], function($,SearchView,SearchHintView,TranslateModule) {
+
+                var searchModule=new SearchView({el:$("#searchView")});
+                searchModule.render();
+//                var searchHintModule=new SearchHintView({el:$(".search-hint-list")});
+//                searchHintModule.render();
+//
+//                var translateModule=new TranslateModule();
+////                translateModule.render();
+//                require(['modules/favoriteSiteView'], function(FavoriteSiteModule) {
+//                    new FavoriteSiteModule();
+//                });
+//                require(['modules/triggerView'], function(TriggerModule) {
+//                    new TriggerModule({"el":$("body")});
+//                });
+            });
+        }
+    });
+</script>
+</body>
+</html>

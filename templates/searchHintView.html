@@ -1,0 +1,10 @@
+<script type="text/template" id="search-hint-view">
+    <%
+    _.each(dataList,function(item){
+    %>
+    <li><a href="javascript:void(0);" class='openHintTarget' callBackEvent="<%=item.callBackEvent%>" callBackKey="<%=item.callBackKey%>"><%=item.title%></a></li>
+    <%
+    });
+    %>
+    </div>
+</script>
