@@ -1,0 +1,27 @@
+<%if(data.pages > 1) { %>
+<% if(data.prev) { %>
+<li> <a href="#" class="prev">上一页</a> </li>
+<% } else { %>
+<li > <a disabled="true">上一页</a> </li>
+<% } %>
+
+<%  _.each(data.pageNums,function(num){
+if(num==data.page){
+%>
+<li class="active"><a href="<%=num%>" class="toPage"><%=num%></a></li>
+<%}else{%>
+<li><a href="<%=num%>" class="toPage"><%=num%></a></li>
+<%
+}});
+%>
+
+<% if(data.next) { %>
+<li> <a href="#" class="next">下一页</a></li>
+<% } else { %>
+<li > <a disabled="true">下一页</a></li>
+<% } %>
+<% } %>
+
+<li >
+    <a disabled="true"><%=data.range[0] %>-<%=data.range[1] %> 共 <%=data.total %></a>
+</li>

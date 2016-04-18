@@ -1,15 +1,15 @@
-define('modules/FavoriteSiteModule',['backbone','FrameworkModule'], function(Backbone,Framework){
+define(['backbone','framework','template'], function(Backbone,Framework,temp){
 
     var FavoriteSiteList=Framework.BaseCollection.extend({
         url:"/favoriteSite/list"
     });
-    var list=new FavoriteSiteList({"baseUrl":"/favoriteSite/list","perPage":10});
+    var list=new FavoriteSiteList({"baseUrl":"http://www.01cun.com/favoriteSite/list","perPage":10});
     list.fetch().then(function(){
         console.log("favorite site is ready");
     });
     var FavoriteSiteModule = Backbone.View.extend({
 
-        template: _.template($("#favorite-site-view").html()),
+        //template: _.template($("#favorite-site-view").html()),
         events:{
 
         },
@@ -20,7 +20,7 @@ define('modules/FavoriteSiteModule',['backbone','FrameworkModule'], function(Bac
 
         },
         render:function(){
-            this.$el.html(this.template());
+            this.$el.html('');
         },
         keywordChanged:function(keyword){
             if(keyword.trim().length<=0){

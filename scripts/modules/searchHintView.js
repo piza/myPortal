@@ -1,4 +1,4 @@
-define('modules/SearchHintModule',['backbone'], function(Backbone){
+define(['backbone','template'], function(Backbone,temp){
 
     var HintCollection=Backbone.Collection.extend({
         initialize:function(){
@@ -29,7 +29,7 @@ define('modules/SearchHintModule',['backbone'], function(Backbone){
     var resultList=new HintCollection();
 
     var HintView = Backbone.View.extend({
-        template: _.template($("#search-hint-view").html()),
+        //template: _.template($("#search-hint-view").html()),
         events:{
             'click .openHintTarget':"openHintTarget"
         },
@@ -51,7 +51,7 @@ define('modules/SearchHintModule',['backbone'], function(Backbone){
             }else{
                 this.$el.hide();
             }
-            this.$("ul.dropdown-menu").html(this.template({"dataList":resultList.toJSON()}));
+            this.$("ul.dropdown-menu").html(temp.searchHintView({"dataList":resultList.toJSON()}));
         },
         openHintTarget:function(e){
             Backbone.Events.trigger($(e.target).attr("callBackEvent"),$(e.target).attr("callBackKey"))

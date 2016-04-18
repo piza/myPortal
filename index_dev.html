@@ -1,16 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="shortcut icon" href="//portal.01cun.com/images/logo.ico" />
-    <script type="text/javascript" src="//portal.01cun.com/scripts/require.js"></script>
-    <link href="//portal.01cun.com/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//portal.01cun.com/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="//portal.01cun.com/css/portal.css" rel="stylesheet">
-    <link href="//portal.01cun.com/css/metisMenu.min.css" rel="stylesheet">
-    <link href="//portal.01cun.com/css/sb-admin-2.css" rel="stylesheet">
-    <link href="//portal.01cun.com/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo.ico" />
+    <script type="text/javascript" src="scripts/require.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/portal.css" rel="stylesheet">
+    <link href="css/metisMenu.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
 
     <link href="scripts/skin/layer.css" rel="stylesheet">
 
@@ -25,10 +24,10 @@
 
 
 <script  type="text/javascript">
-    document.domain='01cun.com';
+//    document.domain='http://www.01cun.com';
 //    document.domain='http://test.01cun.com';
     require.config({
-        baseUrl: '//portal.01cun.com/scripts',
+        baseUrl: 'scripts',
         paths: {
             'jquery': 'jquery.min',
             'json2': 'json2',
@@ -59,7 +58,7 @@
             'dataCenter':['backbone'],
             'layer':['jquery']
         },
-        urlArgs: "version=1.0.6"
+        urlArgs: "version=1.0.0"
         ,callback: function() {
 //            require(['jquery','modules/searchView','modules/searchHintView','modules/translateView'], function($,SearchView,SearchHintView,TranslateModule) {
 
@@ -77,14 +76,6 @@
 //                    new TriggerModule({"el":$("body")});
 //                });
             require(['jquery','modules/login/loginView'], function($,LoginView) {
-                $.ajaxPrefilter(function(options, originalOptions, jqXHR) {//allow cross origin
-                    options.crossDomain ={
-                        crossDomain: true
-                    };
-                    options.xhrFields = {
-                        withCredentials: true
-                    };
-                });
                 new LoginView();
             });
         }

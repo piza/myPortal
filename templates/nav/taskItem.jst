@@ -1,0 +1,19 @@
+
+<li>
+    <a href="#">
+        <div>
+            <p>
+                <strong><%=taskName%></strong>
+                <span class="pull-right text-muted"><%=process%>% Complete</span>
+            </p>
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=process%>" aria-valuemin="0" aria-valuemax="100" style="width:<%=process%>%">
+                    <span class="sr-only"><%=process%>% Complete (success)</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<%if(needDivider){%>
+<li class="divider"></li>
+<%}%>

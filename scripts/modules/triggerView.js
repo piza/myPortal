@@ -1,7 +1,7 @@
-define('modules/TriggerModule',['backbone','FrameworkModule','layer'], function(Backbone,Framework,layer){
+define(['backbone','framework','layer'], function(Backbone,Framework,layer){
 
     var Background=Framework.BaseModel.extend({
-        urlRoot:"/background"
+        urlRoot:"http://localhost:8080/background"
     });
     var bg=new Background();
 

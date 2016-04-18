@@ -1,7 +1,7 @@
-define('modules/TranslateModule',['backbone'], function(Backbone){
+define(['backbone','template'], function(Backbone,temp){
     var TranslateModule = Backbone.View.extend({
 
-        template: _.template($("#translate-view").html()),
+        //template: _.template($("#translate-view").html()),
         events:{
             'keydown #englishInpt':"englishToChinese"
         },
@@ -10,7 +10,7 @@ define('modules/TranslateModule',['backbone'], function(Backbone){
             Backbone.Events.on("keyword-changed",this.keywordChanged,this);
         },
         render:function(){
-            this.$el.html(this.template());
+            this.$el.html(temp.translateView());
         },
         englishToChinese:function(evt){
             var srcText=this.$("#englishInpt").val();
