@@ -7,8 +7,8 @@ define(['backbone','template','dataCenter','modules/moduleManager'], function(Ba
          "subList":[
              {"navUrl":"#chart1","navName":"图表1"}
          ]
-        }
-
+        },
+        {"navUrl":"#modules/dailyPicture","iconClass":"fa-dashboard","navName":"每日一图"}
     ];//navList in jst
 
     var topMenuList=[
@@ -72,6 +72,7 @@ define(['backbone','template','dataCenter','modules/moduleManager'], function(Ba
             allModules.registerModule({'name':'welcome','jsFile':'modules/welcome/welcome'});
             allModules.registerModule({'name':'moduleManage','jsFile':'modules/moduleManage/moduleManage'});
             allModules.registerModule({'name':'authority','jsFile':'modules/authority/authority'});
+            allModules.registerModule({'name':'dailyPicture','jsFile':'modules/dailyPicture/dailyPicture'});
 
         }
     });
