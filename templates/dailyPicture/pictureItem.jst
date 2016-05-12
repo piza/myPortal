@@ -1,17 +1,17 @@
-<div col-md-3>
     <div class="thumbnail">
         <% var imgUrl=item.originUrl;
         var btnClass="btn-primary savePic";
+        var btnName="收藏";
          if(item.savedUrl){
-            imgUrl="//qiniu.01cun.com/"+item.savedUrl+"?imageView2/1/w/150/h/120";
+            imgUrl="//qiniu.01cun.com/"+item.savedUrl+"?imageView2/1/w/"+width+"/h/"+width;
              btnClass="";
+             btnName="已收藏";
           }
         %>
         <img src="<%=imgUrl%>" alt="...">
         <div class="caption">
             <h3><%=item.title%> &nbsp;&nbsp;<small><%=item.alt%></small></h3>
             <p><%=item.description%></p>
-            <p><a href="javascript:void(0);" class="btn <%=btnClass%>" role="button" data-id="<%=item.id%>">收藏</a> <a href="javascript:void(0);" class="btn btn-default" role="button">发朋友圈</a></p>
+            <p><a href="javascript:void(0);" class="btn <%=btnClass%>" role="button" data-id="<%=item.id%>"><%=btnName%></a> <a href="javascript:void(0);" class="btn btn-default" role="button">发朋友圈</a></p>
         </div>
     </div>
-</div>
